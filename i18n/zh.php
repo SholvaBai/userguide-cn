@@ -27,5 +27,5 @@ return array
 	'Source Code' => '源代码',
 	
 	// Templates
-	'Modules' => '扩展',
+	'Modules' => '附加模块',
 );
