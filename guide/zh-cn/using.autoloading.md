@@ -4,13 +4,13 @@ Kohana 需要使用 PHP 自身的[自动加载](http://php.net/manual/language.o
 
     Cookie::set('mycookie', 'any string value');
 
-或者要加载一个 [Encrypt] 的实例化，只需要调用 [Encrypt::instance]：
+或者要加载一个 [Encrypt] 的实例化，只需要调用 [Encrypt::instance]:
 
     $encrypt = Encrypt::instance();
 
-类也可以通过 [Kohana::auto_load] 方法加载，这使得从简单的类名称转换为文件名：
+类也可以通过 [Kohana::auto_load] 方法加载，这使得从简单的类名称转换为文件名:
 
-1. 类必须放置在[文件系统](start.filesystem)的 `classes/` 目录
+1. 类必须放置在[文件系统](about.filesystem)的 `classes/` 目录
 2. 任何下划线字符转换为斜线
 2. 文件名必须是小写的
 

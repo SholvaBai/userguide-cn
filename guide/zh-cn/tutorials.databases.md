@@ -86,7 +86,7 @@ QUERY_PROFILING
 
 在 `connection` 数组中 MySQL 数据库可接受下面选项：
 
-类型      | 选项       |  描述                      | 默认值
+类型      | 选项        |  描述                       | 默认值
 ----------|------------|----------------------------| -------------------------
 `string`  | hostname   | Hostname of the database   | `localhost`
 `integer` | port       | Port number                | `NULL`
@@ -100,7 +100,7 @@ QUERY_PROFILING
 
 在 `connection` 数组中 PDO 数据库可接受下面选项：
 
-类型      | 选项       |  描述                      | 默认值
+类型      | 选项        |  描述                       | 默认值
 ----------|------------|----------------------------| -------------------------
 `string`  | dsn        | PDO data source identifier | `localhost`
 `string`  | username   | Database username          | `NULL`

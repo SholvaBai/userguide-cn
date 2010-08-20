@@ -55,7 +55,7 @@ ORM 扩展默认包含在 Kohana 3.0 之中，但是如要使用它则需要先�
 
 你同样可以使用传递键-值型数组的数据对象去加载记录:
 
-	// 加载 email 为 oe@example.com 的用
+	// 加载 email 为 joe@example.com 的用户
 	$user = ORM::factory('user', array('email' => 'joe@example.com'));
 
 ### 搜索记录
@@ -70,7 +70,7 @@ ORM 支持大多数的 [Database] 方法来强劲驱动搜索模型中的数据�
 
 	// 搜索名为 Bob 的所有用户
 	$users = ORM::factory('user')
-		...
+		->where('name', '=', 'Bob')
 		->find_all();
 	
 当你使用 [ORM::find_all] 搜索一批记录模型，你可以使用迭代从数据库结果中获取每条记录模型：
@@ -158,14 +158,14 @@ ORM 一个强大的特性是 [ORM::as_array] 方法，它把返回的记录集�
 `_updated_column` 和 `_created_column` 变量是用于当模型更新或插入新纪录的时候自动更新设置的字段值。默认没有使用。如果你想使用:
 
 	// date_created 列用于储存创建的时间，使用 TRUE 保存的是时间戳(timestamp)
-	protected $_created_column = array('date_created' => TRUE);
+	protected $_created_column = array('date_created', 'format' => TRUE);
 
 	// date_modified 列用于储存最后修改时间。这里的时间设置为使用 date() 格式后的字符串
-	protected $_updated_column = array('date_modified' => 'm/d/Y');
+	protected $_updated_column = array('date_modified', 'format' => 'm/d/Y');
 
 ### 删除记录
 
-删除记录可以使用 [ORM::delete] 和 [ORM::delet_all] 方法。这两个方法的使用和上面 存储记录 方法类似，但有一点不同的是 [ORM::delete] 方法带有一个删除记录 'id' 的可选参数。
+删除记录可以使用 [ORM::delete] 和 [ORM::delete_all] 方法。这两个方法的使用和上面 存储记录 方法类似，但有一点不同的是 [ORM::delete] 方法带有一个删除记录 'id' 的可选参数。
 
 ### 关系
 

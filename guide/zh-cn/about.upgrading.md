@@ -260,7 +260,7 @@ URL 辅助函数仅做了略微的改动 - `url::redirect()` 方法转移到了 
 
 在 2.3 版本中视图在其处理的控制器中调用呈现，并允许你使用 `$this` 作为视图应用引用到控制器中。这一点在 3.0 版本改变了。视图现在呈现在一个空白的作用域，如果你需要在视图中使用 `$this`，你可以使用 [View::bind] 绑定一个引用 - `$view->bind('this', $this)`
 
-It's worth noting, though, that this is *very* bad practice as it couples your view to the controller, preventing reuse. 推荐的方法是像下面这样去传递必备的变量到视图中：
+需要提一点的是，它连接你的视图到控制器中是非常*不好*的做法，请防止重复使用。推荐的方法是像下面这样去传递必备的变量到视图中：
 
 	$view = View::factory('my/view');
 	

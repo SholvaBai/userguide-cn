@@ -38,7 +38,7 @@ Kohana 遵循[前端控制器]模式，因此所有的请求都要发送到 `ind
         modules/
         system/
 
-你想转移这些目录到 web 目录以外:
+应该转移这些目录到 web 目录以外的地方:
 
     application/
     modules/

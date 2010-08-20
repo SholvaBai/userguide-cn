@@ -18,7 +18,7 @@
 
 请大家记着一点在类文件中，类名到下划线意味着是一个新的目录，参考下面例子:
 
-类名                  | 文件路径
+类名                   | 文件路径
 ----------------------|-------------------------------
 Controller_Template   | classes/controller/template.php
 Model_User            | classes/model/user.php
@@ -39,20 +39,14 @@ Kohana 使用下划线连接命名，而不是驼峰命名。
 
 #### 类
 
-	// 库，使用 _Core 作后缀
-	class Beer_Core {
+	// 控制器类，使用 Controller_ 作前缀
+	class Controller_Apple extends Controller {
 
-	// 库的继承不需要使用后缀
-	class Beer extends Beer_Core
+	// 模型类，使用 _Model 作前缀
+	class Model_Cheese extends Model {
 
-	// 控制器类，使用 _Controller 作后缀
-	class Apple_Controller extends Controller {
-
-	// 模型类，使用 _Model 作后缀
-	class Cheese_Model extends Model {
-
-	// 辅助类
-	class peanut {
+	// 普通类
+	class Peanut {
 
 当你实例化一个不需要附带参数的类时不需要使用圆括号:
 
@@ -134,9 +128,7 @@ Kohana 使用下划线连接命名，而不是驼峰命名。
 	// 错误:
 	if (($foo && $bar) || ($b && $c))
 
-if/else Blocks
-
-使用 elseif 而不是 else if:
+请使用 elseif 而不是 else if:
 
 	// 正确:
 	elseif ($bar)
@@ -261,11 +253,11 @@ There should be one space after statement name, followed by a parenthesis. The !
 
 单行注解使用 //，或许你在使用下面几种注解方式。请在注解符后面保留一个空格在添加注解。坚决不能使用 #。
 
-	// 正确
+	// 正确(Correct)
 
-	//错误
-	// 错误
-	# 错误
+	//错误(Incorrect)
+	// 错误(incorrect)       <---  译者注：开头小写
+	# 错误(Incorrect)
 
 ### 正则表达式
 

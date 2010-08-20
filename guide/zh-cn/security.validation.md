@@ -81,9 +81,11 @@
 
     $object->rule($field, $callback, $parameter);
 
-### 实例
+这个例子中，我们把 $_POST 数组的数据（包括用户注册信息）当作参数传入验证类中:
 
-任何函数添加到 `Validate` 类都可以通过调用一个规则而不必指定 `Validate` 类:
+    $post = Validate::factory($_POST);
+
+接着我们需要使用 [Validate] 处理 POST 数据，因此，需要设置一些规则:
 
     $post
         ->rule('username', 'not_empty')
@@ -99,15 +101,17 @@
 
     $post->rule('use_ssl', 'in_array', array(array('yes', 'no')));
 
-[!!] 注意：所有的参数类数组都必须在一个数组内！
+注意，所有的参数类数组都必须在一个数组内！没有包装的数组，`in_array` 会被这样调用 `in_array($value, 'yes', 'no')` 而这将导致 PHP 错误。
 
 所有其他自定义的规则也可以作为回调函数添加进来:
 
-    $post->rule('username', array($model, 'unique_username'));
+    $post->rule('username', 'User_Model::unique_username');
 
-回调方法 `$model->unique_username()` 的代码如下：
+[!!] 在当前版本(v3.0.7) 规则并不允许使用对象，但可以使用静态方法和函数替代。
 
-    public function unique_username($username)
+回调方法 `User_Model::unique_username()` 的代码如下：
+
+    public static function unique_username($username)
     {
         // 检测用户名是否存在于数据库
         return ! DB::select(array(DB::expr('COUNT(username)'), 'total'))
@@ -124,8 +128,6 @@
 所有的校验规则被定义为字段名，方法或函数(使用 [PHP callback](http://php.net/callback) 语法)以及数组形式的参数:
 
     $object->callback($field, $callback);
-
-[!!] 不同的过滤器和规则，没有参数也可以传递到回调函数之中。
 
 如果用户的密码必须是哈希值，我们可以使用回调函数哈希其值：
 
@@ -160,7 +162,7 @@
         <dd><?php echo Form::input('username', $post['username']) ?></dd>
 
         <dt><?php echo Form::label('password', '密码') ?></dt>
-        <dd><?php echo From::password('password') ?></dd>
+        <dd><?php echo Form::password('password') ?></dd>
         <dd class="help">密码必须保证至少六位字符</dd>
         <dt><?php echo Form::label('confirm', '重复上面密码') ?></dt>
         <dd><?php echo Form::password('confirm') ?></dd>
@@ -170,11 +172,10 @@
         <dd class="help">鉴于安全起见，SSL 一般用于支付时使用</dd>
     </dl>
 
-    <?php echo Form::submit(NULL, '申请') ?>
+    <?php echo Form::submit(NULL, '注册') ?>
     <?php echo Form::close() ?>
 
-[!!] 本例子我们使用了 [Form] 辅助函数生成表单。使用 [Form] 从而代替手写 HTML 代码的好处在于所有输入项都会严格处理。
-如果你喜欢手写 HTML，那请记得使用 [HTML::chars] 方法来转移用户输入。
+[!!] 本例子我们使用了 [Form] 辅助函数生成表单。使用 [Form] 从而代替手写 HTML 代码的好处在于所有输入项都会严格处理。如果你喜欢手写 HTML，那请记得使用 [HTML::chars] 方法来转移用户输入。
 
 接下来，我们开始编写控制器的代码来处理注册过程。假设文件存放于 `application/classes/controller/user.php`:
 
@@ -208,7 +209,7 @@
                 $user->register($post);
 
                 // 通常在注册成功后会调整到登录前的页面
-                URL::redirect('user/profile');
+                $this->request->redirect('user/profile');
             }
 
             // 校验失败，获得错误提示

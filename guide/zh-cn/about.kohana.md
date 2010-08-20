@@ -13,3 +13,6 @@ Kohana 是由志愿者团队开发的一个开源形式使用 [PHP5](http://php.
 ## 这文档太逊了！
 
 我们正在全力提供完整的文档。如果你想从问题中找到答案，请查阅[非官方 Wiki](http://kerkness.ca/wiki/doku.php)。如果你想要添加或修改文档的内容，请 [fork](http://github.com/kohana/userguide) 本文档保存后发送 pull 请求。如果你不善于使用 git，你同样可以提交[feature request](http://dev.kohanaframework.org/projects/kohana3/issues)(需要注册)。
+
+## 求救，找不到我要的答案?
+如果在这里面找不到问题的答案，请在[非官方 Wiki](http://kerkness.ca/wiki/doku.php)。[unofficial wiki](http://kerkness.ca/wiki/doku.php) 找找看。另外说不定可以找到你的问题解答: [官方论坛](http://forum.kohanaphp.com/) 或在 [stackoverflow](http://stackoverflow.com/questions/tagged/kohana) 提交你的问题。另外，你也可以加入 [#kohana](irc://irc.freenode.net/kohana) 开发者 IRC 频道。

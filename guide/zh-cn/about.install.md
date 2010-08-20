@@ -19,7 +19,6 @@
 
 ![欢迎界面](img/welcome.png "Example of welcome page")
 
-
 ## 设置产品(Production)环境
 
 在转移到产品环境之前有些事情需要完成:
@@ -34,7 +33,7 @@
    这是最简单容易的提升 PHP 自身性能的方法。程序越复杂，使用指令缓存带来越大的利益。
 
 		/**
-		 * Set the environment string by the domain (defaults to 'development').
+		 * Set the environment string by the domain (defaults to Kohana::DEVELOPMENT).
 		 */
 		Kohana::$environment = ($_SERVER['SERVER_NAME'] !== 'localhost') ? Kohana::PRODUCTION : Kohana::DEVELOPMENT;
 		/**
@@ -60,7 +59,7 @@
 		}
 		catch (Exception $e)
 		{
-			if ( Kohana::$environment == 'development' )
+			if ( Kohana::$environment === Kohana::DEVELOPMENT)
 			{
 				// Just re-throw the exception
 				throw $e;

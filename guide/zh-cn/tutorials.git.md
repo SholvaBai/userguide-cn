@@ -140,4 +140,10 @@ Kohana 使用 [git](http://git-scm.com/) 作为版本控制并托管在 [github]
     git add database
     git commit -m 'Updated database module'
 
+提示：你也可以检出(check out)官方发布的最新稳定版本，例如:
+
+    git checkout 3.0.7
+
+执行 `git tag` 不附加任何参数可以得到所有标签的列表。
+
 完成！

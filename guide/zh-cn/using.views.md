@@ -61,7 +61,7 @@
     // 赋值 $page_title 到所有的视图
     View::bind_global('page_title', $page_title);
 
-假如程序中首页有三个视图需要输出呈现：`template`，`template/sidebar` 和 `pages/home`。首先，创建一个抽象类控制器去初始化视图模板:
+假如程序中首页有三个视图需要输出呈现: `template`，`template/sidebar` 和 `pages/home`。首先，创建一个抽象类控制器去初始化视图模板:
 
     abstract class Controller_Website extends Controller_Template {
 

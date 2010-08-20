@@ -144,8 +144,7 @@ Kohana 路由系统使用 perl 正则表达式来处理匹配。默认情况下 
       'format' => 'rss'
     ));
 
-比方说，你今后决定改变 `feeds/<user_id>(/<action>).<format>` 的路由定义作进一步的设计。
-Let's say you decided later to make that route definition more verbose by changing it to `feeds/<user_id>(/<action>).<format>`. If you wrote your code with the above uri generation method you wouldn't have to change a single line! When a part of the uri is enclosed in parentheses and specifies a key for which there in no value provided for uri generation and no default value specified in the route, then that part will be removed from the uri. An example of this is the `(/<id>)` part of the default route; this will not be included in the generated uri if an id is not provided.
+比方说，你决定稍候会改变 `feeds/<user_id>(/<action>).<format>` 的路由定义更多的冗余改变该路由规则。加入，你需要写出生成上面 uri 的方法的代码，你不需要更改这一行！当在一个圆括括起来的部分设置了指定的键而且在 uri 生成是没有设置其键值并且路由也没有指定默认值，那么这部分会从 uri 删除掉。如果这个例子中的 `(/<id>)` 部分是一个默认路由，如果 id 没有分配它则不会生成在 uri 之中。
 
 [Request::uri] 可能会是你经常使用的方法，它除了上面说明的功能外还可以设定当前的路由，目录，控制器和 actions 的值。如果我们当前的默认路由是 `users/list`，我们可以生成这样的格式 `users/view/$id`:
 
