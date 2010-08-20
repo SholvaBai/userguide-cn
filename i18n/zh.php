@@ -25,4 +25,7 @@ return array
 	'Default' => '默认',
 	'Return Values' => '返回值',
 	'Source Code' => '源代码',
+	
+	// Templates
+	'Modules' => '扩展',
 );
