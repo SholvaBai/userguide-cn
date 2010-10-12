@@ -25,15 +25,15 @@ ORM 扩展默认包含在 Kohana 3.0 之中，但是如要使用它则需要先�
 
 下面的属性是用于配置每个模型的：
 
-类型      | 属性                |  描述                            | 默认值
+类型       | 属性                |  描述                             | 默认值
 ----------|---------------------|----------------------------------| -------------------------
-`string`  |  _table_name        | 表名                             | `singular model name`
-`string`  | _db                 | 数据库配置名                     | `default`
-`string`  | _primary_key        | 主键                             | `id`
-`string`  | _primary_val        | 主键值                           | `name`
-`bool`    | _table_names_plural | 表名是否是复数形式               | `TRUE`
-`array`   | _sorting            | 列名 => 排序方向的数组           | `primary key => ASC`
-`string`  | _foreign_key_suffix | 外键的后缀                       | `_id`
+`string`  |  _table_name        | 表名                              | `singular model name`
+`string`  | _db                 | 数据库配置名                       | `default`
+`string`  | _primary_key        | 主键                              | `id`
+`string`  | _primary_val        | 主键值                            | `name`
+`bool`    | _table_names_plural | 表名是否是复数形式                  | `TRUE`
+`array`   | _sorting            | 列名 => 排序方向的数组              | `primary key => ASC`
+`string`  | _foreign_key_suffix | 外键的后缀                         | `_id`
 
 ## 使用 ORM
 
@@ -84,7 +84,7 @@ ORM 一个强大的特性是 [ORM::as_array] 方法，它把返回的记录集�
 对于选择列的时候是非常好用的:
 
 	// 显示选择列的用户名 (使用 id 作为其值)
-	form::select('user', ORM::factory('user')->find_all()->as_array('id', 'username') ...
+	echo Form::select('user', ORM::factory('user')->find_all()->as_array('id', 'username') ...
 
 ### 记录数
 
@@ -120,7 +120,7 @@ ORM 一个强大的特性是 [ORM::as_array] 方法，它把返回的记录集�
 	class Model_User extends ORM
 	{
 		...
-		protected $_ignored_columns = array('field1', 'field2', ...)
+		protected $_ignored_columns = array('field1', 'field2', ...);
 		...
 	}
 
@@ -158,10 +158,10 @@ ORM 一个强大的特性是 [ORM::as_array] 方法，它把返回的记录集�
 `_updated_column` 和 `_created_column` 变量是用于当模型更新或插入新纪录的时候自动更新设置的字段值。默认没有使用。如果你想使用:
 
 	// date_created 列用于储存创建的时间，使用 TRUE 保存的是时间戳(timestamp)
-	protected $_created_column = array('date_created', 'format' => TRUE);
+	protected $_created_column = array('column' => 'date_created', 'format' => TRUE);
 
 	// date_modified 列用于储存最后修改时间。这里的时间设置为使用 date() 格式后的字符串
-	protected $_updated_column = array('date_modified', 'format' => 'm/d/Y');
+	protected $_updated_column = array('column' => 'date_modified', 'format' => 'm/d/Y');
 
 ### 删除记录
 
@@ -282,7 +282,7 @@ ORM 和 [Validate] 类是紧密结合使用的。ORM 提供以下几种校验方
 	);
 
 `TRUE` 值代表 `trim` 过滤器应用到所有字段。而 `username` 字段则在校验前使用 `stripslashes` 过滤。那些传递空值数组用于提供可选的额外参数到校验方法中使用。
-	
+
 #### 检测对象是否通过校验
 
 使用 [ORM::check] 检测当前对象是否通过校验:

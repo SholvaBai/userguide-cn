@@ -32,6 +32,8 @@
 3. 打开 APC 或某些类型的指令缓存。
    这是最简单容易的提升 PHP 自身性能的方法。程序越复杂，使用指令缓存带来越大的利益。
 
+[!!] 提示: 假如设置了相关系统变量，默认 bootstrap 设置 Kohana::$environment = $_ENV['KOHANA_ENV']。关于如何设置使用该变量请参考您的 web 服务器文档(比如: [Apache](http://httpd.apache.org/docs/1.3/mod/mod_env.html#setenv)，[Lighttpd](http://redmine.lighttpd.net/wiki/1/Docs:ModSetEnv#Options)，[Nginx](http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param))。这种方式比其他许多设置方式设置 Kohana::$enviroment 更好。
+
 		/**
 		 * Set the environment string by the domain (defaults to Kohana::DEVELOPMENT).
 		 */
@@ -59,7 +61,7 @@
 		}
 		catch (Exception $e)
 		{
-			if ( Kohana::$environment === Kohana::DEVELOPMENT)
+			if (Kohana::$environment === Kohana::DEVELOPMENT)
 			{
 				// Just re-throw the exception
 				throw $e;
